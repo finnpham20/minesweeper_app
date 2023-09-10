@@ -6,7 +6,7 @@ module FetchPage
   module ClassMethods
     def fetch_page(params)
       page = params.fetch(:page, 1)
-      per_page = params.fetch(:per_page, 10)
+      per_page = params.fetch(:per_page, 20)
 
       page(page).per(per_page)
     end
