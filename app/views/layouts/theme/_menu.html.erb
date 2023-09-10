@@ -1,0 +1,19 @@
+<div class="topbar transparent stick">
+  <div class="row main-menu">
+    <div class="col-sm-4 d-flex" onclick="location.href='/'">
+      <span class="material-symbols-outlined icon-home pointer">
+        home
+      </span>
+      <span class="fs-30 pointer">Minesweeper</span>
+    </div>
+    <div class="col-sm-8 d-flex justify-content-end">
+      <div class="container">
+        <div class="row justify-content-end">
+          <div class="col-sm d-flex justify-content-end">
+            Total board: <%= Board.all.size %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

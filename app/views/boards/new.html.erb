@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="card card-share">
+		<div class="card-body">
+			<h5 class="card-title">Add new board</h5>
+			<div>
+				<%= form_for(@board) do |f| %>
+					<div class="field">
+						<%= f.label :email %><br>
+						<%= f.email_field :email, required: true, class: "form-control oneline" %>
+					</div>
+
+					<div class="field">
+						<%= f.label :name %><br>
+						<%= f.text_field :name, required: true, class: "form-control oneline" %>
+					</div>
+
+					<div class="field">
+						<%= f.label :width %><br>
+						<%= f.number_field :width, required: true, min: 1, class: "form-control oneline" %>
+					</div>
+
+					<div class="field">
+						<%= f.label :height %><br>
+						<%= f.number_field :height, required: true, min: 1, class: "form-control oneline" %>
+					</div>
+
+					<div class="field">
+						<%= f.label :num_of_mine %><br>
+						<%= f.number_field :num_of_mine, required: true, min: 1, class: "form-control oneline" %>
+					</div>
+
+					<div class="mt-1 float-right">
+						<%= f.submit 'Generate Board', class: "btn btn-sm btn-success" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

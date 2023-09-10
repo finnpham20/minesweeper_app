@@ -1,0 +1,43 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= Rails.application.credentials.dig(:db, :host) || ENV.fetch('RAILS_DB_HOST', 'localhost') %>
+  username: <%= Rails.application.credentials.dig(:db, :username) || ENV.fetch('RAILS_DB_USER_NAME', 'postgres') %>
+  password: <%= Rails.application.credentials.dig(:db, :password) || ENV.fetch('RAILS_DB_PASSWORD', 'p@ssw0rd') %>
+  pool: <%= Rails.application.credentials.dig(:db, :pool) || ENV.fetch('RAILS_MAX_THREADS', 5)  %>
+  timeout: <%= Rails.application.credentials.dig(:db, :timeout) || ENV.fetch('RAILS_DB_TIMEOUT', 5000) %>
+  port: <%= Rails.application.credentials.dig(:db, :port) || ENV.fetch('RAILS_DB_PORT', 5432) %>
+
+development:
+  <<: *default
+  database: <%= Rails.application.credentials.dig(:db, :db_name) || 'minesweeper-dev' %>
+
+test:
+  <<: *default
+  database: minesweeper-test
+
+# As with config/credentials.yml, you never want to store sensitive information,
+# like your database password, in your source code. If your source code is
+# ever seen by anyone, they now have access to your database.
+#
+# Instead, provide the password or a full connection URL as an environment
+# variable when you boot the app. For example:
+#
+#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+#
+# If the connection URL is provided in the special DATABASE_URL environment
+# variable, Rails will automatically merge its configuration values on top of
+# the values provided in this file. Alternatively, you can specify a connection
+# URL environment variable explicitly:
+#
+#   production:
+#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+#
+# Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full overview on how database connection configuration can be specified.
+#
+production:
+  <<: *default
+  database: minesweeper_app_production
+  username: minesweeper_app
+  password: <%= ENV["MINESWEEPER_APP_DATABASE_PASSWORD"] %>

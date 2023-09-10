@@ -1,0 +1,40 @@
+<div class="container mt-lg-3">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>List of Minesweeper Board</h2>
+    </div>
+    <div class="col-sm-6">
+      <div class="col-sm d-flex justify-content-end">
+        <%= link_to 'New Board', new_board_path, class: "btn btn-success btn-sm m-2" %>
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Board Name</th>
+      <th>Email</th>
+      <th>Created At</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @boards.each do |board| %>
+      <tr>
+        <td><%= board.id %></td>
+        <td><%= link_to board.name, board_path(board) %></td>
+        <td><%= board.email %></td>
+        <td><%= board.created_at.strftime("%F at %I:%M%p") %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @boards %>
+
+  <div>
+    <div class="col-sm d-flex justify-content-end">
+      <%= link_to 'Back to Home', root_path, class: "btn btn-primary btn-sm m-2" %>
+    </div>
+  </div>
+</div>
