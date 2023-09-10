@@ -13,17 +13,9 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
-
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
 
 /public/assets
 
@@ -37,4 +29,4 @@
 .idea/*
 .env
 
-/test
+/test/*
