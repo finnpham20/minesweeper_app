@@ -70,7 +70,7 @@ With a new database, you need to run migrations to initialize the structure and 
 ## Running the Application:
 
 ### Run app in local:
-Start funny movies app:
+Start minesweeper app:
 > rails s
 
 The app will be run at url: `http://127.0.0.1:3000/`
